@@ -31,7 +31,7 @@
                     <div
                         class='col-auto mx-2'
                         :style='`
-                            width: calc(100% - 50px);
+                            width: calc(100% - 100px);
                         `'
                     >
                         <CopyField
@@ -41,6 +41,17 @@
                             :hover='is_editable'
                             @submit='updateProperty("callsign", $event)'
                         />
+                    </div>
+                    <div class='ms-auto my-1'>
+                        <TablerIconButton
+                            title='Close'
+                            @click='router.push("/")'
+                        >
+                            <IconX
+                                :size='actionIconSize'
+                                stroke='1'
+                            />
+                        </TablerIconButton>
                     </div>
                 </div>
                 <div class='col-12 d-flex align-items-center flex-nowrap gap-0 my-1 px-1'>
@@ -712,6 +723,7 @@ import {
     IconAdjustments,
     IconLock,
     IconLockOpen,
+    IconX,
 } from '@tabler/icons-vue';
 import Subscriptions from './util/Subscriptions.vue';
 import { server } from '../../std.ts';
