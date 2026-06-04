@@ -980,7 +980,9 @@ async function fetchType() {
             }
         }
     });
-    if (error) throw new Error(String(error));
+    // Unknown CoT types (external/legacy) shouldn't crash the properties panel
+    // or block other actions (rename, etc.). Leave `type` unset and continue.
+    if (error) return;
     type.value = data;
 }
 
